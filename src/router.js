@@ -68,7 +68,7 @@ const router = (app) => {
   });
 
   app.get("/homeSummary", async (req, res) => {
-    const _id = "63f0bb112c2e7047eee92fbb";
+    const _id = "63f119e6f070fce9ee05514d";
     const summary = await HomeSummaryModel.findOne({ _id });
 
     res.send(summary);
@@ -88,7 +88,7 @@ const router = (app) => {
         return res.status(400).send(validateResources.error.details[0].message);
 
       const updatedSummary = await HomeSummaryModel.updateOne(
-        { _id: "63f0bb112c2e7047eee92fbb" },
+        { _id: "63f119e6f070fce9ee05514d" },
         {
           $set: {
             summary1: summary,
@@ -105,7 +105,7 @@ const router = (app) => {
     try {
       const { summary } = req.body;
 
-      const id = "63f0bb112c2e7047eee92fbb";
+      const id = "63f119e6f070fce9ee05514d";
 
       const bodySchema = Joi.object({
         summary: Joi.string().required(),
