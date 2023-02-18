@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
   admin: String,
 });
 
-UserSchema.pre("save", (next) => {
+UserSchema.pre("save", function (next) {
   if (!this.salt) {
     this.salt = shortId.generate();
   }
