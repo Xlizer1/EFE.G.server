@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import router from "./router.js";
 import connect from "./utils/connect.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ const start = async () => {
     app.use(express.json());
 
     app.use(express.urlencoded({ extended: false }));
+
+    app.use(cors);
 
     router(app);
 
