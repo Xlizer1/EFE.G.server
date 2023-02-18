@@ -130,6 +130,8 @@ const router = (app) => {
       res.send(error.message);
     }
   });
+
+  app.get("*", (req, res) => res.send("URL Not Found"));
 };
 
 export default router;
