@@ -6,18 +6,18 @@ import User from "./models/User.js";
 
 const router = (app) => {
   app.post("/register", async (req, res) => {
-    const { email, password, repeated_passwrod } = req.body;
+    const { email, password, repeated_password } = req.body;
 
     const bodySchema = Joi.object({
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
-      repeated_passwrod: Joi.string(),
+      repeated_password: Joi.string(),
     });
 
-    if (repeated_passwrod !== password)
+    if (repeated_password !== password)
       return res
         .status(400)
-        .send("Your repeated the password in the second field worng");
+        .send("You repeated the password in the second field worng");
 
     const validateResources = bodySchema.validate(req.body);
 
